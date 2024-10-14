@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/flutter_quill.dart';
+import 'package:wysiwyg_flutter_quill/flutter_quill.dart';
 import 'package:wysiwyg_editor/core/core.dart';
 import 'package:wysiwyg_editor/state/editor_controller.dart';
 
@@ -10,13 +10,7 @@ class KUndoButton extends StatelessWidget {
   final QuillIconTheme? iconTheme;
   final Function()? afterPressed;
 
-  const KUndoButton(
-      {super.key,
-      required this.controller,
-      this.icon,
-      this.iconSize,
-      this.afterPressed,
-      this.iconTheme});
+  const KUndoButton({super.key, required this.controller, this.icon, this.iconSize, this.afterPressed, this.iconTheme});
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +37,7 @@ class KRedoButton extends StatelessWidget {
 
   final Function()? afterPressed;
 
-  const KRedoButton(
-      {super.key,
-      required this.controller,
-      this.icon,
-      this.iconSize,
-      this.afterPressed,
-      this.iconTheme});
+  const KRedoButton({super.key, required this.controller, this.icon, this.iconSize, this.afterPressed, this.iconTheme});
 
   @override
   Widget build(BuildContext context) {
@@ -75,14 +63,7 @@ class KStyleButton extends StatelessWidget {
   final QuillIconTheme? iconTheme;
   final Function()? afterPressed;
 
-  const KStyleButton(
-      {super.key,
-      required this.controller,
-      required this.icon,
-      this.iconSize,
-      this.iconTheme,
-      this.afterPressed,
-      required this.attribute});
+  const KStyleButton({super.key, required this.controller, required this.icon, this.iconSize, this.iconTheme, this.afterPressed, required this.attribute});
 
   @override
   Widget build(BuildContext context) {
@@ -110,14 +91,7 @@ class KListButton extends StatelessWidget {
   final QuillIconTheme? iconTheme;
   final Function()? afterPressed;
 
-  const KListButton(
-      {super.key,
-      required this.type,
-      required this.controller,
-      this.icon,
-      this.iconSize,
-      this.afterPressed,
-      this.iconTheme});
+  const KListButton({super.key, required this.type, required this.controller, this.icon, this.iconSize, this.afterPressed, this.iconTheme});
 
   @override
   Widget build(BuildContext context) {
@@ -204,13 +178,7 @@ class KFontSizeButton extends StatelessWidget {
   final Function()? afterPressed;
   final Function(dynamic)? onSelected;
 
-  const KFontSizeButton(
-      {super.key,
-      required this.controller,
-      this.iconSize,
-      this.iconTheme,
-      this.onSelected,
-      this.afterPressed});
+  const KFontSizeButton({super.key, required this.controller, this.iconSize, this.iconTheme, this.onSelected, this.afterPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -236,13 +204,7 @@ class KFontColorButton extends StatelessWidget {
   final Function()? afterPressed;
   final bool forBackground;
 
-  const KFontColorButton(
-      {super.key,
-      required this.controller,
-      this.iconSize,
-      this.iconTheme,
-      required this.forBackground,
-      this.afterPressed});
+  const KFontColorButton({super.key, required this.controller, this.iconSize, this.iconTheme, required this.forBackground, this.afterPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -267,13 +229,7 @@ class KIndentButton extends StatelessWidget {
   final Function()? afterPressed;
   final bool increase;
 
-  const KIndentButton(
-      {super.key,
-      required this.controller,
-      this.iconSize,
-      this.iconTheme,
-      required this.increase,
-      this.afterPressed});
+  const KIndentButton({super.key, required this.controller, this.iconSize, this.iconTheme, required this.increase, this.afterPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -283,8 +239,7 @@ class KIndentButton extends StatelessWidget {
         iconSize: iconSize ?? controller.theme.iconSize,
         iconTheme: iconTheme ?? controller.theme.iconTheme,
         tooltip: "${increase ? "Increase" : "Decrease"} Indent",
-        iconData:
-            increase ? Icons.format_indent_increase_outlined : Icons.format_indent_decrease_rounded,
+        iconData: increase ? Icons.format_indent_increase_outlined : Icons.format_indent_decrease_rounded,
         afterButtonPressed: afterPressed,
       ),
       isIncrease: increase,

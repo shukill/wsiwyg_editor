@@ -1,4 +1,4 @@
-import 'package:flutter_quill/flutter_quill.dart';
+import 'package:wysiwyg_flutter_quill/flutter_quill.dart';
 
 class KTheme {
   final QuillIconTheme iconTheme;

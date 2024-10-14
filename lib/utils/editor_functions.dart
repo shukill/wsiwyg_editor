@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/flutter_quill.dart';
+import 'package:wysiwyg_flutter_quill/flutter_quill.dart';
 import 'package:wysiwyg_editor/core/core.dart';
 import 'package:wysiwyg_editor/state/state.dart';
 
 class EditorFunctions {
   static LinkTextData? extractHyperlinkFromSelection(EditorController controller) {
-    final String? link =
-        controller.quillController.getSelectionStyle().attributes[Attribute.link.key]?.value;
+    final String? link = controller.quillController.getSelectionStyle().attributes[Attribute.link.key]?.value;
     final index = controller.quillController.selection.start;
 
     String? text;
@@ -47,11 +46,7 @@ class EditorFunctions {
     }
   }
 
-  static addHyperLinkToEditor(
-      {required LinkTextData value,
-      required EditorController controller,
-      required TextSelection selection,
-      required Style selectionStyle}) {
+  static addHyperLinkToEditor({required LinkTextData value, required EditorController controller, required TextSelection selection, required Style selectionStyle}) {
     var index = selection.start;
     var length = selection.end - index;
     if (selectionStyle.attributes[Attribute.link.key]?.value != null) {
@@ -72,15 +67,13 @@ class EditorFunctions {
       final index = controller.quillController.selection.baseOffset;
       final length = controller.quillController.selection.extentOffset - index;
 
-      controller.quillController.replaceText(index, length,
-          BlockEmbed.custom(KVideoEmbedBlockEmbed(jsonEncode(embedData.toMap()))), null);
+      controller.quillController.replaceText(index, length, BlockEmbed.custom(KVideoEmbedBlockEmbed(jsonEncode(embedData.toMap()))), null);
       controller.quillController.moveCursorToPosition(index + 1);
       addTextElementToEditor(controller, "\n");
     }
   }
 
-  static modifyEmbed(
-      {required EditorController controller, required KCustomVideoEmbedData updatedData}) {
+  static modifyEmbed({required EditorController controller, required KCustomVideoEmbedData updatedData}) {
     List<dynamic> deltas = controller.quillController.document.toDelta().toJson();
 
     int index = deltas.indexWhere((element) {
@@ -97,24 +90,20 @@ class EditorFunctions {
     });
     if (index != -1) {
       deltas[index] = {
-        "insert": {
-          "custom": BlockEmbed.custom(KVideoEmbedBlockEmbed(jsonEncode(updatedData.toMap()))).data
-        }
+        "insert": {"custom": BlockEmbed.custom(KVideoEmbedBlockEmbed(jsonEncode(updatedData.toMap()))).data}
       };
 
       int cursorPosition = controller.quillController.selection.baseOffset;
 
       controller.quillController.clear();
 
-      controller.quillController.document
-          .compose(Document.fromJson(deltas).toDelta(), ChangeSource.local);
+      controller.quillController.document.compose(Document.fromJson(deltas).toDelta(), ChangeSource.local);
       controller.quillController.moveCursorToPosition(cursorPosition);
     }
     // controller.quillController.queryNode(offset)
   }
 
-  static modifyAttachment(
-      {required EditorController controller, required KCustomAttachmentData updatedData}) {
+  static modifyAttachment({required EditorController controller, required KCustomAttachmentData updatedData}) {
     List<dynamic> deltas = controller.quillController.document.toDelta().toJson();
 
     int index = deltas.indexWhere((element) {
@@ -131,17 +120,14 @@ class EditorFunctions {
     });
     if (index != -1) {
       deltas[index] = {
-        "insert": {
-          "custom": BlockEmbed.custom(KAttachmentBlockEmbed(jsonEncode(updatedData.toMap()))).data
-        }
+        "insert": {"custom": BlockEmbed.custom(KAttachmentBlockEmbed(jsonEncode(updatedData.toMap()))).data}
       };
 
       int cursorPosition = controller.quillController.selection.start;
 
       controller.quillController.clear();
 
-      controller.quillController.document
-          .compose(Document.fromJson(deltas).toDelta(), ChangeSource.local);
+      controller.quillController.document.compose(Document.fromJson(deltas).toDelta(), ChangeSource.local);
       controller.quillController.moveCursorToPosition(cursorPosition);
     }
     // controller.quillController.queryNode(offset)
@@ -152,8 +138,7 @@ class EditorFunctions {
       final index = controller.quillController.selection.baseOffset;
       final length = controller.quillController.selection.extentOffset - index;
 
-      controller.quillController.replaceText(index, length,
-          BlockEmbed.custom(KAttachmentBlockEmbed(jsonEncode(embedData.toMap()))), null);
+      controller.quillController.replaceText(index, length, BlockEmbed.custom(KAttachmentBlockEmbed(jsonEncode(embedData.toMap()))), null);
       controller.quillController.moveCursorToPosition(index + 1);
       addTextElementToEditor(controller, "\n");
     }

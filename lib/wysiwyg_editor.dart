@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/flutter_quill.dart';
+import 'package:wysiwyg_flutter_quill/flutter_quill.dart';
 import 'package:provider/provider.dart';
 import 'package:wysiwyg_editor/components/components.dart';
 import 'package:wysiwyg_editor/core/core.dart';
@@ -17,10 +17,8 @@ class WYSIWYGEditor extends StatelessWidget {
   final Function(String url) onLaunchUrl;
   final DefaultStyles customStyles;
   final bool readOnly, cursorEnabled;
-  final Widget Function(KCustomAttachmentData embedData, Embed node, bool readOnly, bool inline,
-      TextStyle textStyle)? attachmentEmbedBuilder;
-  final Widget Function(KCustomVideoEmbedData embedData, Embed node, bool readOnly, bool inline,
-      TextStyle textStyle)? videoEmbedBuilder;
+  final Widget Function(KCustomAttachmentData embedData, Embed node, bool readOnly, bool inline, TextStyle textStyle)? attachmentEmbedBuilder;
+  final Widget Function(KCustomVideoEmbedData embedData, Embed node, bool readOnly, bool inline, TextStyle textStyle)? videoEmbedBuilder;
   final List<dynamic> customEmbedBuilders;
   final String? hint;
 
@@ -49,9 +47,9 @@ class WYSIWYGEditor extends StatelessWidget {
           // controller.quillController.readOnly =
           //     readOnly || !controller.allowCursor;
           return QuillEditor(
-            controller: controller.quillController,
             configurations: QuillEditorConfigurations(
               autoFocus: autoFocus,
+              controller: controller.quillController,
               checkBoxReadOnly: readOnly || !controller.allowCursor,
               placeholder: hint,
               expands: true,
@@ -59,11 +57,7 @@ class WYSIWYGEditor extends StatelessWidget {
               padding: padding ?? EdgeInsets.zero,
               onLaunchUrl: onLaunchUrl,
               customStyles: customStyles,
-              embedBuilders: [
-                DefaultKAttachmentEmbedBuilder(embedBuilder: attachmentEmbedBuilder),
-                DefaultKVideoEmbedBuilder(embedBuilder: videoEmbedBuilder),
-                ...customEmbedBuilders
-              ],
+              embedBuilders: [DefaultKAttachmentEmbedBuilder(embedBuilder: attachmentEmbedBuilder), DefaultKVideoEmbedBuilder(embedBuilder: videoEmbedBuilder), ...customEmbedBuilders],
               scrollable: true,
             ),
             scrollController: controller.scrollController,

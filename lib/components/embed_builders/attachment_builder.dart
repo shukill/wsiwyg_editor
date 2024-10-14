@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/flutter_quill.dart' as quill;
+import 'package:wysiwyg_flutter_quill/flutter_quill.dart' as quill;
 import 'package:wysiwyg_editor/core/core.dart';
 
 class DefaultKAttachmentEmbedBuilder extends quill.EmbedBuilder {
-  final Widget Function(KCustomAttachmentData embedData, quill.Embed node, bool readOnly,
-      bool inline, TextStyle textStyle)? embedBuilder;
+  final Widget Function(KCustomAttachmentData embedData, quill.Embed node, bool readOnly, bool inline, TextStyle textStyle)? embedBuilder;
 
   DefaultKAttachmentEmbedBuilder({this.embedBuilder});
 
@@ -13,12 +12,10 @@ class DefaultKAttachmentEmbedBuilder extends quill.EmbedBuilder {
   String get key => KAttachmentBlockEmbed.customType;
 
   @override
-  Widget build(BuildContext context, quill.QuillController controller, quill.Embed node,
-      bool readOnly, bool inline, TextStyle textStyle) {
+  Widget build(BuildContext context, quill.QuillController controller, quill.Embed node, bool readOnly, bool inline, TextStyle textStyle) {
     try {
       if (node.value.type == key) {
-        final KCustomAttachmentData data =
-            KCustomAttachmentData.fromMap(jsonDecode(node.value.data as String));
+        final KCustomAttachmentData data = KCustomAttachmentData.fromMap(jsonDecode(node.value.data as String));
         return embedBuilder?.call(data, node, readOnly, inline, textStyle) ??
             Builder(builder: (context) {
               if (data.isImage) {

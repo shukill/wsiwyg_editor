@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/flutter_quill.dart';
+import 'package:wysiwyg_flutter_quill/flutter_quill.dart';
 import 'package:wysiwyg_editor/components/components.dart';
 import 'package:wysiwyg_editor/core/core.dart';
 
@@ -10,10 +10,8 @@ class WYSIWYGEditorPreview extends StatefulWidget {
   final List<dynamic> delta;
   final TextStyle? textStyle;
   final bool expands;
-  final Widget Function(KCustomAttachmentData embedData, Embed node, bool readOnly, bool inline,
-      TextStyle textStyle)? attachmentEmbedBuilder;
-  final Widget Function(KCustomVideoEmbedData embedData, Embed node, bool readOnly, bool inline,
-      TextStyle textStyle)? videoEmbedBuilder;
+  final Widget Function(KCustomAttachmentData embedData, Embed node, bool readOnly, bool inline, TextStyle textStyle)? attachmentEmbedBuilder;
+  final Widget Function(KCustomVideoEmbedData embedData, Embed node, bool readOnly, bool inline, TextStyle textStyle)? videoEmbedBuilder;
   final List<dynamic> customEmbedBuilders;
   final DefaultStyles? customStyle;
 
@@ -61,10 +59,7 @@ class _WYSIWYGEditorPreviewState extends State<WYSIWYGEditorPreview> {
         ChangeSource.local,
       );
     } else {
-      _quillController = QuillController(
-          document: document,
-          selection: const TextSelection(baseOffset: 0, extentOffset: 0),
-          readOnly: true);
+      _quillController = QuillController(document: document, selection: const TextSelection(baseOffset: 0, extentOffset: 0), readOnly: true);
     }
     setState(() {});
   }
@@ -91,8 +86,9 @@ class _WYSIWYGEditorPreviewState extends State<WYSIWYGEditorPreview> {
     return QuillEditor(
       scrollController: _scrollController,
       focusNode: _focusNode,
-      controller: _quillController!,
+
       configurations: QuillEditorConfigurations(
+        controller: _quillController!,
         autoFocus: true,
         scrollable: true,
         padding: widget.padding,
@@ -100,11 +96,7 @@ class _WYSIWYGEditorPreviewState extends State<WYSIWYGEditorPreview> {
         onLaunchUrl: widget.onLaunchUrl,
         expands: widget.expands,
         customStyles: widget.customStyle,
-        embedBuilders: [
-          DefaultKAttachmentEmbedBuilder(embedBuilder: widget.attachmentEmbedBuilder),
-          DefaultKVideoEmbedBuilder(embedBuilder: widget.videoEmbedBuilder),
-          ...widget.customEmbedBuilders
-        ],
+        embedBuilders: [DefaultKAttachmentEmbedBuilder(embedBuilder: widget.attachmentEmbedBuilder), DefaultKVideoEmbedBuilder(embedBuilder: widget.videoEmbedBuilder), ...widget.customEmbedBuilders],
       ),
       // embedBuilder: quillEmbedBuilder,
     );

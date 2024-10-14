@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/flutter_quill.dart';
+import 'package:wysiwyg_flutter_quill/flutter_quill.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wysiwyg_editor/core/assets/asset_string.dart';
 
@@ -69,9 +69,7 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
 
   void _toggleFormat(Attribute attribute) {
     widget.controller.formatSelection(
-      !widget.controller.getSelectionStyle().attributes.containsKey(attribute.key)
-          ? attribute
-          : Attribute.clone(attribute, null),
+      !widget.controller.getSelectionStyle().attributes.containsKey(attribute.key) ? attribute : Attribute.clone(attribute, null),
     );
   }
 
@@ -106,12 +104,7 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
               ),
             ),
             child: Row(
-              children: [
-                Attribute.leftAlignment,
-                Attribute.centerAlignment,
-                Attribute.rightAlignment,
-                Attribute.justifyAlignment
-              ].asMap().entries.map((entry) {
+              children: [Attribute.leftAlignment, Attribute.centerAlignment, Attribute.rightAlignment, Attribute.justifyAlignment].asMap().entries.map((entry) {
                 final index = entry.key;
                 final alignment = entry.value;
                 return Row(
@@ -162,15 +155,7 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        // color: Colors.black,
-        border: Border(
-          top: BorderSide(
-            color: widget.dividerColor,
-            width: widget.dividerWidth,
-          ),
-        ),
-      ),
+      decoration: const BoxDecoration(),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -229,8 +214,7 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
     );
   }
 
-  Widget _buildToolbarButton(String icon, bool isActive, VoidCallback? onPressed,
-      {Color? iconColor, bool isDisableBackground = false}) {
+  Widget _buildToolbarButton(String icon, bool isActive, VoidCallback? onPressed, {Color? iconColor, bool isDisableBackground = false}) {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
@@ -248,9 +232,7 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
           child: SvgPicture.string(
             icon,
             colorFilter: ColorFilter.mode(
-              !isDisableBackground
-                  ? widget.activeColor
-                  : iconColor ?? (isActive ? widget.activeColor : widget.inActiveColor),
+              !isDisableBackground ? widget.activeColor : iconColor ?? (isActive ? widget.activeColor : widget.inActiveColor),
               BlendMode.srcIn,
             ),
             width: widget.svgSize,
