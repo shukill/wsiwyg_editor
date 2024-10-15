@@ -1,3 +1,7 @@
+## 2.0.0
+
+* Remove super clipboard, reduced min sdk to 23
+
 ## 1.3.0
 
 * Updated constrains

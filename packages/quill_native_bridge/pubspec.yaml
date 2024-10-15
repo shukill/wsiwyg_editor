@@ -1,0 +1,24 @@
+name: wsiwyg_quill_native_bridge
+description: "An internal plugin for flutter_quill package to access platform-specific APIs"
+version: 1.0.0
+
+
+environment:
+  sdk: ">=3.1.6 <4.0.0"
+  flutter: ">=3.19.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.1.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  plugin:
+    platforms:
+      ios:
+        pluginClass: QuillNativeBridgePlugin
