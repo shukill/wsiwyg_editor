@@ -1,9 +1,8 @@
 import 'dart:io' show Platform;
 
-import 'package:flutter/foundation.dart'
-    show TargetPlatform, defaultTargetPlatform, kDebugMode, kIsWeb;
+import 'package:flutter/foundation.dart' show TargetPlatform, defaultTargetPlatform, kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:quill_native_bridge/quill_native_bridge.dart';
+import 'package:wsiwyg_quill_native_bridge/quill_native_bridge.dart';
 
 // Android
 
@@ -32,9 +31,7 @@ Future<bool> isIOSSimulator() async {
 // Mobile
 
 @pragma('vm:platform-const-if', !kDebugMode)
-bool get isMobile =>
-    defaultTargetPlatform == TargetPlatform.iOS ||
-    defaultTargetPlatform == TargetPlatform.android;
+bool get isMobile => defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android;
 
 @pragma('vm:platform-const-if', !kDebugMode)
 bool get isMobileApp => !kIsWeb && isMobile;
@@ -42,10 +39,7 @@ bool get isMobileApp => !kIsWeb && isMobile;
 // Destkop
 
 @pragma('vm:platform-const-if', !kDebugMode)
-bool get isDesktop =>
-    defaultTargetPlatform == TargetPlatform.linux ||
-    defaultTargetPlatform == TargetPlatform.macOS ||
-    defaultTargetPlatform == TargetPlatform.windows;
+bool get isDesktop => defaultTargetPlatform == TargetPlatform.linux || defaultTargetPlatform == TargetPlatform.macOS || defaultTargetPlatform == TargetPlatform.windows;
 
 @pragma('vm:platform-const-if', !kDebugMode)
 bool get isDesktopApp => !kIsWeb && isDesktop;
@@ -61,9 +55,7 @@ bool get isMacOSApp => !kIsWeb && isMacOS;
 // AppleOS
 
 @pragma('vm:platform-const-if', !kDebugMode)
-bool get isAppleOS =>
-    defaultTargetPlatform == TargetPlatform.iOS ||
-    defaultTargetPlatform == TargetPlatform.macOS;
+bool get isAppleOS => defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.macOS;
 
 @pragma('vm:platform-const-if', !kDebugMode)
 bool get isAppleOSApp => !kIsWeb && isAppleOS;
@@ -71,13 +63,11 @@ bool get isAppleOSApp => !kIsWeb && isAppleOS;
 // Keyboard
 
 @pragma('vm:platform-const-if', !kDebugMode)
-bool get isKeyboardOS =>
-    isDesktop || defaultTargetPlatform == TargetPlatform.fuchsia;
+bool get isKeyboardOS => isDesktop || defaultTargetPlatform == TargetPlatform.fuchsia;
 
 extension PlatformThemeCheckExtension on ThemeData {
   bool get isMaterial => !isCupertino;
-  bool get isCupertino =>
-      {TargetPlatform.iOS, TargetPlatform.macOS}.contains(platform);
+  bool get isCupertino => {TargetPlatform.iOS, TargetPlatform.macOS}.contains(platform);
 }
 
 /// Should check if [kIsWeb] is `false` before checking if
