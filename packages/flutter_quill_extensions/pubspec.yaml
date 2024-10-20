@@ -2,11 +2,10 @@ name: wysiwyg_flutter_quill_extensions
 description: Embed extensions for flutter_quill including image, video, formula and etc.
 version: 2.0.0
 
-
 topics:
- - widgets
- - widget
- - rich-text-editor
+  - widgets
+  - widget
+  - rich-text-editor
 
 platforms:
   android:
@@ -17,7 +16,7 @@ platforms:
   windows:
 
 environment:
-  sdk: '>=3.1.6 <4.0.0'
+  sdk: ">=3.1.6 <4.0.0"
   flutter: ">=3.16.0"
 
 dependencies:
@@ -41,12 +40,11 @@ dependencies:
   url_launcher: ^6.2.1
   gal: ^2.3.0
   gal_linux: ^0.1.0
-  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^2.0.0
 
 flutter:
   uses-material-design: true

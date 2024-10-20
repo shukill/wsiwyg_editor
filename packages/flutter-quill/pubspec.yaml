@@ -2,13 +2,11 @@ name: wysiwyg_flutter_quill
 description: "A rich text editor built for Android, iOS, Web, and desktop platforms. It's the WYSIWYG editor and a Quill component for Flutter."
 version: 2.1.0
 
-
 topics:
   - widgets
   - widget
   - rich-text-editor
   - quill
-
 
 platforms:
   android:
@@ -51,7 +49,7 @@ dependencies:
   wsiwyg_quill_native_bridge: ^1.0.0
 
 dev_dependencies:
-  flutter_lints: ^5.0.0
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
   flutter_quill_test: ^10.0.0
