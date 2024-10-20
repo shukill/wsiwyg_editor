@@ -1,8 +1,7 @@
 import 'package:flutter/gestures.dart' show TapGestureRecognizer;
 import 'package:flutter/material.dart';
-import 'package:wysiwyg_flutter_quill/flutter_quill.dart' show DefaultStyles;
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:youtube_explode_dart/youtube_explode_dart.dart';
+import 'package:wysiwyg_flutter_quill/flutter_quill.dart' show DefaultStyles;
 
 import '../models/youtube_video_support_mode.dart';
 import '../youtube_video_url.dart';
@@ -72,11 +71,7 @@ class YoutubeVideoAppState extends State<YoutubeVideoApp> {
   }
 
   Future<String> _loadYoutubeVideoWithVideoPlayerByVideoUrl() async {
-    final youtubeExplode = YoutubeExplode();
-    final manifest = await youtubeExplode.videos.streamsClient.getManifest(_videoId);
-    final streamInfo = manifest.muxed.withHighestBitrate();
-    final videoDownloadUri = streamInfo.url;
-    return videoDownloadUri.toString();
+    return '';
   }
 
   Widget _clickableVideoLinkText({required DefaultStyles defaultStyles}) {

@@ -1,3 +1,7 @@
+## 3.2.0
+
+* Removed native constrains
+
 ## 2.2.0
 
 * Enabled support for SDK 3.16+

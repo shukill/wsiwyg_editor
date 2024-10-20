@@ -1,6 +1,6 @@
 name: wysiwyg_editor
 description: A Detailed Rich Text Editor for Flutter
-version: 2.2.0
+version: 3.2.0
 
 environment:
   sdk: ">=3.1.0 <4.0.0"
@@ -12,8 +12,8 @@ dependencies:
 
   provider: ^6.0.3
   random_string: ^2.3.1
-  wysiwyg_flutter_quill: ^2.0.0
-  wysiwyg_flutter_quill_extensions: ^2.0.0
+  wysiwyg_flutter_quill: ^3.1.0
+  wysiwyg_flutter_quill_extensions: ^3.2.0
   flutter_svg:
 
 dev_dependencies:
