@@ -23,9 +23,9 @@ dev_dependencies:
 
 flutter:
   plugin:
-    implements: quill_native_bridge
+    implements: wysiwyg_quill_native_bridge_android
     platforms:
       android:
-        package: dev.flutterquill.quill_native_bridge
+        package: dev.kflutterquill.quill_native_bridge
         pluginClass: QuillNativeBridgePlugin
         dartPluginClass: QuillNativeBridgeAndroid

@@ -1,6 +1,6 @@
 name: wysiwyg_flutter_quill_extensions
 description: Embed extensions for flutter_quill including image, video, formula and etc.
-version: 3.2.0
+version: 3.3.0
 
 topics:
   - widgets
@@ -30,7 +30,7 @@ dependencies:
   universal_html: ^2.2.4
   cross_file: ^0.3.3+6
 
-  wysiwyg_flutter_quill: 3.1.0
+  wysiwyg_flutter_quill: ^3.2.0
   photo_view: ^0.15.0
 
   # Plugins

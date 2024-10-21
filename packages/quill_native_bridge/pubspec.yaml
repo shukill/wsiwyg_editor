@@ -38,7 +38,7 @@ flutter:
   plugin:
     platforms:
       android:
-        default_package: quill_native_bridge_android
+        default_package: wysiwyg_quill_native_bridge_android
       ios:
         default_package: quill_native_bridge_ios
       macos:

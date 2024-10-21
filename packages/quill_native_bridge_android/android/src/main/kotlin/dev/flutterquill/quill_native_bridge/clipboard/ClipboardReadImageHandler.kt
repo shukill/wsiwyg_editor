@@ -1,4 +1,4 @@
-package dev.flutterquill.quill_native_bridge.clipboard
+package dev.kflutterquill.quill_native_bridge.clipboard
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -8,7 +8,7 @@ import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
-import dev.flutterquill.quill_native_bridge.generated.FlutterError
+import dev.kflutterquill.quill_native_bridge.generated.FlutterError
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 

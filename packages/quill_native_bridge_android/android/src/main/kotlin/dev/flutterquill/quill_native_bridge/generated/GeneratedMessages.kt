@@ -2,7 +2,7 @@
 // See also: https://pub.dev/packages/pigeon
 @file:Suppress("UNCHECKED_CAST", "ArrayInDataClass")
 
-package dev.flutterquill.quill_native_bridge.generated
+package dev.kflutterquill.quill_native_bridge.generated
 
 import android.util.Log
 import io.flutter.plugin.common.BasicMessageChannel

@@ -1,10 +1,10 @@
-package dev.flutterquill.quill_native_bridge
+package dev.kflutterquill.quill_native_bridge
 
 import android.content.Context
-import dev.flutterquill.quill_native_bridge.clipboard.ClipboardReadImageHandler
-import dev.flutterquill.quill_native_bridge.clipboard.ClipboardRichTextHandler
-import dev.flutterquill.quill_native_bridge.clipboard.ClipboardWriteImageHandler
-import dev.flutterquill.quill_native_bridge.generated.QuillNativeBridgeApi
+import dev.kflutterquill.quill_native_bridge.clipboard.ClipboardReadImageHandler
+import dev.kflutterquill.quill_native_bridge.clipboard.ClipboardRichTextHandler
+import dev.kflutterquill.quill_native_bridge.clipboard.ClipboardWriteImageHandler
+import dev.kflutterquill.quill_native_bridge.generated.QuillNativeBridgeApi
 
 class QuillNativeBridgeImpl(private val context: Context) : QuillNativeBridgeApi {
     override fun getClipboardHtml(): String? = ClipboardRichTextHandler.getClipboardHtml(context)

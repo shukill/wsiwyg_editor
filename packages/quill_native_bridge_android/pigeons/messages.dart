@@ -7,7 +7,7 @@ import 'package:pigeon/pigeon.dart';
   kotlinOut:
       'android/src/main/kotlin/dev/flutterquill/quill_native_bridge/generated/GeneratedMessages.kt',
   kotlinOptions: KotlinOptions(
-    package: 'dev.flutterquill.quill_native_bridge.generated',
+    package: 'dev.kflutterquill.quill_native_bridge.generated',
   ),
   dartPackageName: 'quill_native_bridge_android',
 ))

@@ -1,10 +1,10 @@
-package dev.flutterquill.quill_native_bridge.clipboard
+package dev.kflutterquill.quill_native_bridge.clipboard
 
 import android.content.ClipData
 import android.content.ClipDescription
 import android.content.ClipboardManager
 import android.content.Context
-import dev.flutterquill.quill_native_bridge.generated.FlutterError
+import dev.kflutterquill.quill_native_bridge.generated.FlutterError
 
 object ClipboardRichTextHandler {
     fun getClipboardHtml(context: Context): String? {

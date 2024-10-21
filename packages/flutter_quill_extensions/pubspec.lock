@@ -105,14 +105,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
-  ffi:
-    dependency: transitive
-    description:
-      name: ffi
-      sha256: "16ed7b077ef01ad6170a3d0c57caa4a112a38d7a2ed5602e0aca9ca6f3d98da6"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.3"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -333,54 +325,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
-  quill_native_bridge_ios:
-    dependency: transitive
-    description:
-      name: quill_native_bridge_ios
-      sha256: "16dd18a56bdc60f396eb873a0786141d8e3281cc0cb6ad7af24c2286abec43d8"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.1-dev.4"
-  quill_native_bridge_linux:
-    dependency: transitive
-    description:
-      name: quill_native_bridge_linux
-      sha256: a0d8aa775b36a7b8ac7ace5bd6ba05b21fed6c9b04a9f328f95489254ae0f7a3
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.1-dev.3"
-  quill_native_bridge_macos:
-    dependency: transitive
-    description:
-      name: quill_native_bridge_macos
-      sha256: "76d441a905181af04c51b9cf71a13e04c3dd51ed482dcb543a01e14d78ad3fc0"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.1-dev.2"
-  quill_native_bridge_platform_interface:
-    dependency: transitive
-    description:
-      name: quill_native_bridge_platform_interface
-      sha256: "5ad4a9cdb6fadd6575bca29c277f83daa324539c97f58cf45cff6195135defb9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.1-dev.4"
-  quill_native_bridge_web:
-    dependency: transitive
-    description:
-      name: quill_native_bridge_web
-      sha256: "59d673b946ecb8dbcdd387a4957de12f0263690bdbe159832355855ac7a45de9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.1-dev.4"
-  quill_native_bridge_windows:
-    dependency: transitive
-    description:
-      name: quill_native_bridge_windows
-      sha256: "78bc40cc4a23387ed79a309fc04f7a95a0b6da9ebce67f739dd08b0fd0523641"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.1-dev.3"
   quiver:
     dependency: transitive
     description:
@@ -554,38 +498,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
-  win32:
-    dependency: transitive
-    description:
-      name: win32
-      sha256: "68d1e89a91ed61ad9c370f9f8b6effed9ae5e0ede22a270bdfa6daf79fc2290a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.5.4"
   wysiwyg_flutter_quill:
     dependency: "direct main"
     description:
       name: wysiwyg_flutter_quill
-      sha256: "9d71d40d4f03f71a656cc2aef0d1fe7e519cbd14d1c9de77b3f6c1e6d12d5e5a"
+      sha256: "1f637d4e867aab53255a561f3d4af98234650e617093cd5a8cbb8aa3bc0734bb"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0"
-  wysiwyg_quill_native_bridge:
-    dependency: transitive
-    description:
-      name: wysiwyg_quill_native_bridge
-      sha256: "8f5ba2c82941109022948862fb93783e75c186a4cbd72d38fc3f931829a19746"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
-  wysiwyg_quill_native_bridge_android:
-    dependency: transitive
-    description:
-      name: wysiwyg_quill_native_bridge_android
-      sha256: f2b02887ae6b84ecaa59ded76728c0baed80137dbf2036fa1afafaf0591099b4
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
+    version: "3.2.0"
 sdks:
   dart: ">=3.4.3 <4.0.0"
   flutter: ">=3.22.0"
