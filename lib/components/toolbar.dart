@@ -69,7 +69,9 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
 
   void _toggleFormat(Attribute attribute) {
     widget.controller.formatSelection(
-      !widget.controller.getSelectionStyle().attributes.containsKey(attribute.key) ? attribute : Attribute.clone(attribute, null),
+      !widget.controller.getSelectionStyle().attributes.containsKey(attribute.key)
+          ? attribute
+          : Attribute.clone(attribute, null),
     );
   }
 
@@ -83,6 +85,7 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
   }
 
   void _showAlignmentOverlay(BuildContext context, Offset position) {
+    FocusScope.of(context).unfocus();
     if (_overlayEntry != null) {
       _removeOverlay();
       return;
@@ -104,7 +107,12 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
               ),
             ),
             child: Row(
-              children: [Attribute.leftAlignment, Attribute.centerAlignment, Attribute.rightAlignment, Attribute.justifyAlignment].asMap().entries.map((entry) {
+              children: [
+                Attribute.leftAlignment,
+                Attribute.centerAlignment,
+                Attribute.rightAlignment,
+                Attribute.justifyAlignment
+              ].asMap().entries.map((entry) {
                 final index = entry.key;
                 final alignment = entry.value;
                 return Row(
@@ -214,7 +222,8 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
     );
   }
 
-  Widget _buildToolbarButton(String icon, bool isActive, VoidCallback? onPressed, {Color? iconColor, bool isDisableBackground = false}) {
+  Widget _buildToolbarButton(String icon, bool isActive, VoidCallback? onPressed,
+      {Color? iconColor, bool isDisableBackground = false}) {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
@@ -232,7 +241,9 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
           child: SvgPicture.string(
             icon,
             colorFilter: ColorFilter.mode(
-              !isDisableBackground ? widget.activeColor : iconColor ?? (isActive ? widget.activeColor : widget.inActiveColor),
+              !isDisableBackground
+                  ? widget.activeColor
+                  : iconColor ?? (isActive ? widget.activeColor : widget.inActiveColor),
               BlendMode.srcIn,
             ),
             width: widget.svgSize,

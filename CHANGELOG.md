@@ -1,3 +1,7 @@
+## 3.3.1
+
+* Unfocus keyboard on  alignment
+
 ## 3.2.0
 
 * Removed native constrains
