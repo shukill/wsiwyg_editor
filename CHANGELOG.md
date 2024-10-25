@@ -1,3 +1,7 @@
+## 3.3.2
+
+* Made alignment overlay accessable
+
 ## 3.3.1
 
 * Unfocus keyboard on  alignment

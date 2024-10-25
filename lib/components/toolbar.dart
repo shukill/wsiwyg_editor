@@ -3,6 +3,15 @@ import 'package:wysiwyg_flutter_quill/flutter_quill.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wysiwyg_editor/core/assets/asset_string.dart';
 
+class WYSIWYGOverlayHelper {
+  static OverlayEntry? activeOverlay;
+
+  static void dismissOverlay() {
+    activeOverlay?.remove();
+    activeOverlay = null;
+  }
+}
+
 class WYSIWYGToolbar extends StatefulWidget {
   final QuillController controller;
   final double svgSize;
@@ -37,7 +46,6 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
   bool _isItalic = false;
   bool _isUnderline = false;
   Attribute _currentAlignment = Attribute.leftAlignment;
-  OverlayEntry? _overlayEntry;
   bool _canUndo = false;
   bool _canRedo = false;
 
@@ -86,11 +94,11 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
 
   void _showAlignmentOverlay(BuildContext context, Offset position) {
     FocusScope.of(context).unfocus();
-    if (_overlayEntry != null) {
+    if (WYSIWYGOverlayHelper.activeOverlay != null) {
       _removeOverlay();
       return;
     }
-    _overlayEntry = OverlayEntry(
+    WYSIWYGOverlayHelper.activeOverlay = OverlayEntry(
       builder: (context) => Positioned(
         bottom: widget.containerSize.height * 2,
         right: 16,
@@ -137,12 +145,11 @@ class WYSIWYGToolbarState extends State<WYSIWYGToolbar> {
         ),
       ),
     );
-    Overlay.of(context).insert(_overlayEntry!);
+    Overlay.of(context).insert(WYSIWYGOverlayHelper.activeOverlay!);
   }
 
   void _removeOverlay() {
-    _overlayEntry?.remove();
-    _overlayEntry = null;
+    WYSIWYGOverlayHelper.dismissOverlay();
   }
 
   String _getAlignmentIcon(Attribute alignment) {
