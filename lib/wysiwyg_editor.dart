@@ -17,8 +17,10 @@ class WYSIWYGEditor extends StatelessWidget {
   final Function(String url) onLaunchUrl;
   final DefaultStyles customStyles;
   final bool readOnly, cursorEnabled;
-  final Widget Function(KCustomAttachmentData embedData, Embed node, bool readOnly, bool inline, TextStyle textStyle)? attachmentEmbedBuilder;
-  final Widget Function(KCustomVideoEmbedData embedData, Embed node, bool readOnly, bool inline, TextStyle textStyle)? videoEmbedBuilder;
+  final Widget Function(KCustomAttachmentData embedData, Embed node, bool readOnly, bool inline,
+      TextStyle textStyle)? attachmentEmbedBuilder;
+  final Widget Function(KCustomVideoEmbedData embedData, Embed node, bool readOnly, bool inline,
+      TextStyle textStyle)? videoEmbedBuilder;
   final List<dynamic> customEmbedBuilders;
   final String? hint;
 
@@ -57,7 +59,11 @@ class WYSIWYGEditor extends StatelessWidget {
               padding: padding ?? EdgeInsets.zero,
               onLaunchUrl: onLaunchUrl,
               customStyles: customStyles,
-              embedBuilders: [DefaultKAttachmentEmbedBuilder(embedBuilder: attachmentEmbedBuilder), DefaultKVideoEmbedBuilder(embedBuilder: videoEmbedBuilder), ...customEmbedBuilders],
+              embedBuilders: [
+                DefaultKAttachmentEmbedBuilder(embedBuilder: attachmentEmbedBuilder),
+                DefaultKVideoEmbedBuilder(embedBuilder: videoEmbedBuilder),
+                ...customEmbedBuilders
+              ],
               scrollable: true,
             ),
             scrollController: controller.scrollController,
